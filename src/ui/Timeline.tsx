@@ -1,5 +1,5 @@
 import { useStore } from '../state/store'
-import { trackById } from '../data/stars'
+import { trackById, phaseIcon } from '../data/stars'
 import { t } from '../i18n/ui'
 
 export function Timeline() {
@@ -39,7 +39,7 @@ export function Timeline() {
               onClick={() => scrub(i)}
               title={p.name[lang]}
             >
-              <span className="dot" />
+              <span className="dot">{phaseIcon(p.visual.kind)}</span>
               <span className="dot-label">{p.name[lang]}</span>
             </button>
           )

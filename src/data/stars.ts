@@ -217,3 +217,19 @@ export const TRACKS: StarTrack[] = [
 export function trackById(id: MassClass): StarTrack {
   return TRACKS.find((t) => t.id === id) ?? TRACKS[1]
 }
+
+// Emoji icon per phase kind — used as compact markers on the timeline (esp. mobile).
+const ICONS: Record<PhaseKind, string> = {
+  nebula: '🌫️',
+  protostar: '✨',
+  main: '☀️',
+  giant: '🔴',
+  whiteDwarf: '⚪',
+  neutron: '💫',
+  blackhole: '⚫',
+  supernova: '💥',
+}
+
+export function phaseIcon(kind: PhaseKind): string {
+  return ICONS[kind]
+}

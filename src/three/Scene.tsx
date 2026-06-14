@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { memo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
@@ -30,15 +30,17 @@ function BloomController({ effectRef }: { effectRef: React.RefObject<BloomEffect
   return null
 }
 
-export function SceneCanvas() {
+// Stable references so the <Canvas> host never re-applies these on re-render.
+const CAMERA = { position: [0, 1.5, 9] as [number, number, number], fov: 50 }
+const DPR: [number, number] = [1, 2]
+const GL = { antialias: false, powerPreference: 'high-performance' as const }
+
+// Memoized: language/UI re-renders of the parent must NOT reconcile the 3D tree.
+export const SceneCanvas = memo(function SceneCanvas() {
   const bloomRef = useRef<BloomEffect | null>(null)
 
   return (
-    <Canvas
-      camera={{ position: [0, 1.5, 9], fov: 50 }}
-      dpr={[1, 2]}
-      gl={{ antialias: false, powerPreference: 'high-performance' }}
-    >
+    <Canvas camera={CAMERA} dpr={DPR} gl={GL}>
       <color attach="background" args={['#05060f']} />
       <ambientLight intensity={0.15} />
       <Background />
@@ -66,7 +68,7 @@ export function SceneCanvas() {
       </EffectComposer>
     </Canvas>
   )
-}
+})
 
 // Reads store with subscriptions only for structural changes (mass/compare),
 // while continuous position is read imperatively each frame.
