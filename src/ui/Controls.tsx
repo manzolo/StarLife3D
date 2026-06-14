@@ -47,17 +47,19 @@ export function Controls() {
           {autoplay ? '❚❚' : '▶'} {t('autoplay', lang)}
         </button>
 
-        <div className="seg speed-seg" title={t('speed', lang)}>
-          {SPEEDS.map((sp) => (
-            <button
-              key={sp}
-              className={speed === sp ? 'on' : ''}
-              onClick={() => setSpeed(sp)}
-            >
-              {sp}×
-            </button>
-          ))}
-        </div>
+        {autoplay && (
+          <div className="seg speed-seg" title={t('speed', lang)}>
+            {SPEEDS.map((sp) => (
+              <button
+                key={sp}
+                className={speed === sp ? 'on' : ''}
+                onClick={() => setSpeed(sp)}
+              >
+                {sp}×
+              </button>
+            ))}
+          </div>
+        )}
 
         <button
           className={`pill ${compare ? 'on' : ''}`}

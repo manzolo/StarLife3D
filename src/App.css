@@ -249,6 +249,76 @@
   font-style: italic;
   color: var(--muted) !important;
 }
+.info-fact {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(106, 160, 255, 0.12), rgba(182, 123, 255, 0.08));
+  border: 1px solid rgba(150, 180, 255, 0.22);
+}
+.info-fact-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.info-fact-head h3 {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #cdd9ff;
+}
+.fact-shuffle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 3px 7px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  transition: 0.18s;
+}
+.fact-shuffle:hover {
+  border-color: var(--accent);
+  transform: rotate(-90deg);
+}
+.info-fact p {
+  margin: 8px 0 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #eaf0ff;
+}
+.fact-src {
+  font-size: 11px;
+  color: var(--muted);
+}
+.info-sources {
+  margin-top: 14px;
+  font-size: 12px;
+}
+.info-sources summary {
+  cursor: pointer;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 11px;
+}
+.info-sources ul {
+  margin: 8px 0 0;
+  padding-left: 16px;
+}
+.info-sources li {
+  margin: 3px 0;
+}
+.info-sources a {
+  color: #cdd9ff;
+  text-decoration: none;
+}
+.info-sources a:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
 .info-nav {
   display: flex;
   gap: 8px;
