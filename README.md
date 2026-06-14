@@ -64,4 +64,18 @@ Il `base path` è impostato su `/StarLife3D/` tramite la variabile `BASE_PATH`
 
 I valori di massa, temperatura, luminosità, raggio e durata delle fasi sono
 rappresentativi e basati su modelli di evoluzione stellare e dati osservativi
-(NASA, ESO). Le proporzioni visive sono adattate per chiarezza didattica.
+(NASA, ESA, ESO). Le proporzioni visive sono adattate per chiarezza didattica.
+Le curiosità ("Lo sapevi?") riportano la fonte di riferimento.
+
+## 🔭 Fonti / Sources
+
+I dati e le curiosità sono attribuiti ai rispettivi enti scientifici:
+
+- [NASA — Science](https://science.nasa.gov/universe/stars/)
+- [ESA — European Space Agency](https://www.esa.int/Science_Exploration/Space_Science)
+- [ESO — European Southern Observatory](https://www.eso.org/public/)
+- [ESA/Hubble](https://esahubble.org/)
+- [Event Horizon Telescope](https://eventhorizontelescope.org/)
+
+Le fonti sono consultabili anche dentro l'app: nel pannello informativo
+(sezione *Fonti*) e nell'angolo in basso a sinistra.
