@@ -15,6 +15,10 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+# Run the bundled JS actions (checkout, setup-node, upload-artifact) on Node 24.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - run: npm ci
