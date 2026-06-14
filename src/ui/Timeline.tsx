@@ -8,6 +8,7 @@ export function Timeline() {
   const pos = useStore((s) => s.pos)
   const setPos = useStore((s) => s.setPos)
   const setAutoplay = useStore((s) => s.setAutoplay)
+  const setInfoOpen = useStore((s) => s.setInfoOpen)
 
   const track = trackById(massClass)
   const n = track.phases.length
@@ -17,6 +18,12 @@ export function Timeline() {
   const scrub = (value: number) => {
     setAutoplay(false)
     setPos(value)
+  }
+
+  // Tapping a phase icon jumps there and reveals the details panel.
+  const selectPhase = (i: number) => {
+    scrub(i)
+    setInfoOpen(true)
   }
 
   return (
@@ -36,7 +43,7 @@ export function Timeline() {
               key={p.id}
               className={`timeline-dot ${active ? 'active' : ''}`}
               style={{ left: `${(i / max) * 100}%` }}
-              onClick={() => scrub(i)}
+              onClick={() => selectPhase(i)}
               title={p.name[lang]}
             >
               <span className="dot">{phaseIcon(p.visual.kind)}</span>

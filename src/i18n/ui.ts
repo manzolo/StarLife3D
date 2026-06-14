@@ -11,6 +11,7 @@ export const UI = {
   autoplay: { it: 'Accelerazione temporale', en: 'Time acceleration' },
   play: { it: 'Avvia', en: 'Play' },
   pause: { it: 'Pausa', en: 'Pause' },
+  speed: { it: 'Velocità', en: 'Speed' },
   compare: { it: 'Confronta', en: 'Compare' },
   compareOn: { it: 'Vista doppia attiva', en: 'Split view on' },
   duration: { it: 'Durata', en: 'Duration' },

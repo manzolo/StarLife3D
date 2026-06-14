@@ -110,6 +110,10 @@
   flex-wrap: wrap;
   align-items: center;
 }
+.speed-seg button {
+  padding: 9px 11px;
+  font-variant-numeric: tabular-nums;
+}
 .pill {
   background: var(--panel);
   border: 1px solid var(--panel-border);

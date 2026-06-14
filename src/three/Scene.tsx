@@ -15,9 +15,14 @@ function AutoplayDriver() {
     const s = useStore.getState()
     if (!s.autoplay) return
     const max = trackById(s.massClass).phases.length - 1
-    let next = s.pos + Math.min(dt, 0.05) * 0.45
-    if (next >= max) next = 0 // loop the life cycle
-    s.setPos(next)
+    const next = s.pos + Math.min(dt, 0.05) * 0.45 * s.speed
+    if (next >= max) {
+      // reached the end: stop and let the user restart manually
+      s.setPos(max)
+      s.setAutoplay(false)
+    } else {
+      s.setPos(next)
+    }
   })
   return null
 }

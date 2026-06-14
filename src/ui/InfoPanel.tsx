@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useStore } from '../state/store'
 import { trackById, phaseIcon } from '../data/stars'
 import { t } from '../i18n/ui'
@@ -9,11 +8,9 @@ export function InfoPanel() {
   const pos = useStore((s) => s.pos)
   const next = useStore((s) => s.next)
   const prev = useStore((s) => s.prev)
-
-  // Collapsed by default on small screens so the star stays visible.
-  const [open, setOpen] = useState(() =>
-    typeof window === 'undefined' ? true : window.innerWidth > 760,
-  )
+  // Open/collapsed state lives in the store so the timeline can auto-expand it.
+  const open = useStore((s) => s.infoOpen)
+  const toggleOpen = useStore((s) => s.toggleInfoOpen)
 
   const track = trackById(massClass)
   const idx = Math.round(pos)
@@ -21,11 +18,7 @@ export function InfoPanel() {
 
   return (
     <div className={`info-panel ${open ? 'open' : 'collapsed'}`}>
-      <button
-        className="info-head"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-      >
+      <button className="info-head" onClick={toggleOpen} aria-expanded={open}>
         <span className="info-icon">{phaseIcon(phase.visual.kind)}</span>
         <span className="info-head-text">
           <span className="info-step">
